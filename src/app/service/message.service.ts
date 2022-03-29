@@ -8,7 +8,7 @@ import { Message } from "../model/message.model";
   providedIn: "root",
 })
 export class MessageService {
-  protected resource: string = "http://message-list.appspot.com/";
+  protected resource: string = "https://message-list.appspot.com/";
   constructor(protected httpClient: HttpClient) {}
 
   // To get messages
