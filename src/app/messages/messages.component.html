@@ -1,0 +1,39 @@
+<mat-toolbar class="header"> Messages </mat-toolbar>
+
+<cdk-virtual-scroll-viewport #scroller itemSize="100" class="content">
+  <mat-list class="message-card-container">
+    <ng-container
+      class="message-card"
+      *cdkVirtualFor="let message of messageList; let i = index"
+    >
+      <mat-list-item
+        class="message-card"
+        (swipeleft)="startAnimation('slideOutLeft', i)"
+        (swiperight)="startAnimation('slideOutRight', i)"
+        [@swipeOut]="animationState[i]"
+        (@swipeOut.done)="resetAnimationState(i, message.id)"
+      >
+        <div class="flex row">
+          <img src="{{ message.photoUrl }}" alt="image" />
+          <div class="flex column padding-left-20">
+            <h2 class="title">{{ message.name }}</h2>
+            <div class="sub-title">
+              {{ message.time | date: "mm" }} minutes ago
+            </div>
+          </div>
+        </div>
+        <div class="flex row">
+          <p class="description" title="{{ message.description }}">
+            {{ message.description }}
+          </p>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <div class="spinner-item">
+      <mat-progress-spinner
+        [mode]="'indeterminate'"
+        [diameter]="50"
+      ></mat-progress-spinner>
+    </div>
+  </mat-list>
+</cdk-virtual-scroll-viewport>
