@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build --prod",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --aot"
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -28,13 +28,15 @@
     "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
+    "@angular/cli": "^13.3.0",
+    "@angular/compiler-cli": "^9.0.7",
     "typescript": "~3.7.5",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.6",
-    "@angular/cli": "~9.0.6",
-    "@angular/compiler-cli": "~9.0.6",
+    "@angular/cli": "^13.3.0",
+    "@angular/compiler-cli": "^9.0.7",
     "@angular/language-service": "~9.0.6",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
