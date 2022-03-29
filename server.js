@@ -5,10 +5,11 @@ const path = require('path');
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + 'dist/infinite-scrolling-message-list'));
+app.use('/', express.static('infinite-scrolling-message-list'));
 
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/Infinite-Scrolling-Message-List/index.html'));
+app.get('*', (req,res,next) => {
+    const indexFile = path.resolve(__dirname + '/Infinite-Scrolling-Message-List/index.html');
+    res.sendFile(indexFile);
 });
 
 // Start the app by listening on the default Heroku port
